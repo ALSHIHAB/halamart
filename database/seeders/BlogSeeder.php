@@ -21,7 +21,7 @@ class BlogSeeder extends Seeder
             ],
             'category_id' => 1,
             'excerpt_en' => 'Take your marketing further with Halamart. Think with Halamart.',
-            'excerpt_ar' => 'سندباد تأخذك الى عالم التجارة عبر الانترنت الى ابعد مدى',
+            'excerpt_ar' => 'هــلا مارت تأخذك الى عالم التجارة عبر الانترنت الى ابعد مدى',
             'content_en' => 'Those who have taken notes from the past two years of market disruptions know this: steady and nimble wins the race. To stay relevant and be prepared for what is next, knowing what people are prioritizing and what drives their interests is key, and for this, no guesswork is necessary.',
             'content_ar' => 'أولئك الذين أخذوا ملاحظات من العامين الماضيين من اضطرابات السوق يعرفون هذا: الثبات والذكاء يفوز بالسباق. للبقاء على صلة بالموضوع والاستعداد لما هو قادم ، فإن معرفة ما الذي يعطيه الناس الأولوية وما الذي يدفع اهتماماتهم أمر أساسي ، ولهذا ، لا داعي للتخمين.',
             'thumbnail' => 'blog/post1.jpg',
