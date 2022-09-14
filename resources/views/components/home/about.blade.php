@@ -1,5 +1,5 @@
 <div class="pt-0 sm:pt-12 lg:pt-24 lg:pb-10">
-    <div class="pb-8 bg-indigo-600 lg:pb-0 lg:relative">
+    <div class="pb-8 bg-sky-700 lg:pb-0 lg:relative">
         <div class="lg:screen lg:grid lg:grid-cols-3 lg:gap-8">
 
             <div class="sm:mt-12 lg:m-0 lg:col-span-2 lg:pl-8">
