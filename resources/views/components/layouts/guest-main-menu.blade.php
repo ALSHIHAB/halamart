@@ -3,7 +3,7 @@
         <div class="flex justify-between h-16">
             <!-- Logo -->
             <a href="/" class="flex items-center flex-shrink-0">
-                <img class="block w-auto h-8" src="{{ asset('storage/' . config('global.logo')) }}"
+                <img class="block w-auto h-8" src="{{ asset('storage/' . config('global.logo_'.App::getLocale())) }}"
                     alt="{{ config('global.name_' . App::getLocale()) }}" />
             </a>
             <div class="flex mr-6 space-x-8 rtl:space-x-reverse">

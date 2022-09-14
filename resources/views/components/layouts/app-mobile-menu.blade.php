@@ -14,7 +14,7 @@
             x-transition:enter="ease-in-out duration-300" x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-300"
             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-            <div class="absolute top-0 rtl:left-0 pt-2 rtl:-ml-12 ltr:right-0 ltr:-mr-12">
+            <div class="absolute top-0 pt-2 rtl:left-0 rtl:-ml-12 ltr:right-0 ltr:-mr-12">
                 <button type="button" x-on:click="mobileMenu=false"
                     class="flex items-center justify-center w-10 h-10 ml-1 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                     <span class="sr-only">Close sidebar</span>
@@ -26,7 +26,7 @@
                 </button>
             </div>
             <a href="/" class="flex items-center flex-shrink-0 px-4">
-                <img class="block w-auto h-8" src="{{ asset('storage/' . config('global.logo')) }}"
+                <img class="block w-auto h-8" src="{{ asset('storage/' . config('global.logo_'.App::getLocale())) }}"
                     alt="{{ config('global.name_' . App::getLocale()) }}" />
             </a>
             <div class="flex-1 h-0 mt-5 overflow-y-auto">

@@ -29,7 +29,7 @@
                     <span class="sr-only">items in cart, view bag</span>
                 </button>
                 <a href="/" class="flex items-center flex-shrink-0">
-                    <img class="block w-auto h-8" src="{{ asset('storage/' . config('global.logo')) }}"
+                    <img class="block w-auto h-8" src="{{ asset('storage/' . config('global.logo_'.App::getLocale())) }}"
                         alt="{{ config('global.name_' . App::getLocale()) }}" />
                 </a>
             </div>
@@ -41,32 +41,32 @@
         <div class="pt-2 pb-3 space-y-1 text-base font-medium text-gray-500">
             <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
             <a href="/"
-                class="block py-2 ltr:pl-3 ltr:pr-4 ltr:border-l-4 rtl:pl-4 rtl:pr-3 rtl:border-r-4 text-base font-medium text-indigo-700 border-indigo-500 bg-indigo-50">
+                class="block py-2 text-base font-medium text-indigo-700 border-indigo-500 ltr:pl-3 ltr:pr-4 ltr:border-l-4 rtl:pl-4 rtl:pr-3 rtl:border-r-4 bg-indigo-50">
                 {{ __('Home') }}
             </a>
             <a href="{{ route('products') }}"
-                class="block py-2 ltr:pl-3 ltr:pr-4 ltr:border-l-4 rtl:pl-4 rtl:pr-3 rtl:border-r-4 border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700">
+                class="block py-2 border-transparent ltr:pl-3 ltr:pr-4 ltr:border-l-4 rtl:pl-4 rtl:pr-3 rtl:border-r-4 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700">
                 {{ __('Products') }}
             </a>
             <a href="{{ route('categories') }}"
-                class="block py-2 ltr:pl-3 ltr:pr-4 ltr:border-l-4 rtl:pl-4 rtl:pr-3 rtl:border-r-4 border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700">
+                class="block py-2 border-transparent ltr:pl-3 ltr:pr-4 ltr:border-l-4 rtl:pl-4 rtl:pr-3 rtl:border-r-4 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700">
                 {{ __('Categories') }}
             </a>
             <a href="{{ route('brands') }}"
-                class="block py-2 ltr:pl-3 ltr:pr-4 ltr:border-l-4 rtl:pl-4 rtl:pr-3 rtl:border-r-4 border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700">
+                class="block py-2 border-transparent ltr:pl-3 ltr:pr-4 ltr:border-l-4 rtl:pl-4 rtl:pr-3 rtl:border-r-4 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700">
                 {{ __('Brands') }}
             </a>
             <a href="{{ route('pages.about') }}"
-                class="block py-2 ltr:pl-3 ltr:pr-4 ltr:border-l-4 rtl:pl-4 rtl:pr-3 rtl:border-r-4 border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700">
+                class="block py-2 border-transparent ltr:pl-3 ltr:pr-4 ltr:border-l-4 rtl:pl-4 rtl:pr-3 rtl:border-r-4 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700">
                 {{ __('About') }}
             </a>
             <a href="{{ route('pages.contact') }}"
-                class="block py-2 ltr:pl-3 ltr:pr-4 ltr:border-l-4 rtl:pl-4 rtl:pr-3 rtl:border-r-4 border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700">
+                class="block py-2 border-transparent ltr:pl-3 ltr:pr-4 ltr:border-l-4 rtl:pl-4 rtl:pr-3 rtl:border-r-4 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700">
                 {{ __('Contact') }}
             </a>
-            <div class="mt-1 border-t pt-2 flex px-3 divide-x-2 rtl:divide-x-reverse space-x-4 rtl:space-x-reverse">
-                <a href="{{ route('language', 'ar') }}" class="btn-cancel border-b-4">{{ __('AR') }}</a>
-                <a href="{{ route('language', 'en') }}" class="btn-cancel border-b-4">{{ __('EN') }}</a>
+            <div class="flex px-3 pt-2 mt-1 space-x-4 border-t divide-x-2 rtl:divide-x-reverse rtl:space-x-reverse">
+                <a href="{{ route('language', 'ar') }}" class="border-b-4 btn-cancel">{{ __('AR') }}</a>
+                <a href="{{ route('language', 'en') }}" class="border-b-4 btn-cancel">{{ __('EN') }}</a>
             </div>
             @auth
                 <a href="/user/profile"
@@ -110,7 +110,7 @@
                     </li>
                 </form>
             @else
-                <div class="mt-1 border-t pt-2 grid grid-cols-2 gap-4 w-full px-3">
+                <div class="grid w-full grid-cols-2 gap-4 px-3 pt-2 mt-1 border-t">
                     <a href="{{ route('login') }}" class="btn">{{ __('Login') }}</a>
                     <a href="{{ route('register') }}" class="btn">{{ __('Register') }}</a>
                 </div>

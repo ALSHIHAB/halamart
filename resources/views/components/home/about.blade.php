@@ -20,7 +20,7 @@
                 <div class="max-w-md px-4 mx-auto sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
                     <div
                         class="px-2 overflow-hidden aspect-w-8 aspect-h-6 sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
-                        <img class="object-contain lg:h-full lg:w-full" src="{{ asset('storage/'.config('global.logo')) }}"
+                        <img class="object-contain lg:h-full lg:w-full" src="{{ asset('storage/'.config('global.logo_'.App::getLocale())) }}"
                             alt="">
                     </div>
                 </div>

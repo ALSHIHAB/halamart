@@ -1,10 +1,10 @@
-<div class="hidden bg-sky-700 shadow sm:block font-droidBold"> <!-- bg-[#ed1c24] -->
+<div class="hidden shadow bg-sky-700 sm:block font-droidBold"> <!-- bg-[#ed1c24] -->
     <div class="screen">
         <div class="flex flex-col pb-1">
             <div class="flex items-center justify-between py-4">
                 <!-- Logo -->
                 <a href="/" class="flex items-center flex-shrink-0">
-                    <img class="block w-auto h-24" src="{{ asset('storage/logo-white.png') }}"
+                    <img class="block w-auto h-24" src="{{ asset('storage/'.config('global.logo_'.App::getLocale())) }}"
                         alt="{{ config('global.name_' . App::getLocale()) }}" />
                 </a>
 

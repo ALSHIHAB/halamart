@@ -17,7 +17,7 @@
                         </div>
                         <div>
                             <img class="relative inset-0 z-0 object-fill w-full border-4 border-white h-96"
-                            src="{{ asset('storage/logo.png') }}" />
+                            src="{{ asset('storage/layout-basic.jpg') }}" />
                         </div>
                         <div class="flex items-center">
                             <input id="modern" wire:model.defer="layout" name="layout" type="radio" value="modern" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
@@ -25,7 +25,7 @@
                         </div>
                         <div>
                             <img class="relative inset-0 z-0 object-fill w-full border-4 border-white h-96"
-                            src="{{ asset('storage/logo.png') }}" />
+                            src="{{ asset('storage/layout-modern.jpg') }}" />
                         </div>
                     </div>
                 </fieldset>

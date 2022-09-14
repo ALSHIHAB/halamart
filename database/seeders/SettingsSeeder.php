@@ -53,7 +53,7 @@ class SettingsSeeder extends Seeder
             ],
             [
                 'name' => 'contact',
-                'value' => '009677677652',
+                'value' => '601139370239',
             ],
             [
                 'name' => 'country_en',
@@ -76,12 +76,20 @@ class SettingsSeeder extends Seeder
                 'value' => '53000',
             ],
             [
-                'name' => 'logo',
+                'name' => 'logo_en',
                 'value' => 'halamart-red.png',
             ],
             [
-                'name' => 'logo_transparent',
+                'name' => 'logo_ar',
+                'value' => 'halamart-red-ar.png',
+            ],
+            [
+                'name' => 'logo_transparent_en',
                 'value' => 'halamart-white.png',
+            ],
+            [
+                'name' => 'logo_transparent_ar',
+                'value' => 'halamart-white-ar.png',
             ],
             [
                 'name' => 'icon',
@@ -101,7 +109,7 @@ class SettingsSeeder extends Seeder
             ],
             [
                 'name' => 'whatsapp',
-                'value' => '009677677652',
+                'value' => '601139370239',
             ],
             [
                 'name' => 'facebook',

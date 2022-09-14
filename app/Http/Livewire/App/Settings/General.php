@@ -3,8 +3,6 @@
 namespace App\Http\Livewire\App\Settings;
 
 use App\Models\Setting;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -16,17 +14,13 @@ class General extends Component
     public $logo;
     public $icon;
 
-
     public $remove_logo = false;
     public $remove_icon = false;
     public $set_slides = false;
 
-
     public $slides;
     public $slider_images = [];
     public $branches = [];
-
-
 
     public function render()
     {
@@ -47,14 +41,17 @@ class General extends Component
             $this->slider_images = json_decode($settings['slider_images']);
             $this->slides = count($this->slider_images);
         }
-        if (!$this->remove_logo)
-            $this->logo = $settings['logo'];
-        if (!$this->remove_icon)
+        if (!$this->remove_logo) {
+            $this->logo = $settings['logo_en'];
+        }
+
+        if (!$this->remove_icon) {
             $this->icon = $settings['icon'];
+        }
 
         $this->branches = json_decode($settings['branches']);
         //$this->settings['branches'] = $this->branches;
-        $this->settings =  $settings;
+        $this->settings = $settings;
     }
 
     public function saveGeneral()
@@ -63,15 +60,20 @@ class General extends Component
 
         foreach ($this->settings as $key => $value) {
             $set = '';
-            if ($key != 'logo' && $key != 'icon')
+            if ($key != 'logo_en' && $key != 'icon') {
                 $set = Setting::where('name', $key)->first();
-            if ($set) $set->update(['value' => $value]);
+            }
+
+            if ($set) {
+                $set->update(['value' => $value]);
+            }
+
         }
         //Artisan::call('cache:clear');
 
         if ($this->logo && !is_string($this->logo)) {
             $path = $this->logo->store('/', 'public');
-            Setting::where('name', 'logo')->first()->update(['value' => $path]);
+            Setting::where('name', 'logo_en')->first()->update(['value' => $path]);
         }
         if ($this->icon && !is_string($this->icon)) {
             $path = $this->icon->store('/', 'public');
@@ -143,13 +145,14 @@ class General extends Component
         $this->remove_icon = true;
     }
 
-
     public function setSlides($value)
     {
         $this->slides = $value;
         $this->set_slides = true;
-        for ($i = count($this->slider_images); $i < $value; $i++)
+        for ($i = count($this->slider_images); $i < $value; $i++) {
             array_push($this->slider_images, '');
+        }
+
     }
 
     public function removePreview($index = 0)

@@ -29,7 +29,7 @@
                     <span class="sr-only">items in cart, view bag</span>
                 </button>
                 <a href="/" class="flex items-center flex-shrink-0">
-                    <img class="block w-auto h-8" src="{{ asset('storage/' . config('global.logo')) }}"
+                    <img class="block w-auto h-8" src="{{ asset('storage/' . config('global.logo_'.App::getLocale())) }}"
                         alt="{{ config('global.name_' . App::getLocale()) }}" />
                 </a>
             </div>
