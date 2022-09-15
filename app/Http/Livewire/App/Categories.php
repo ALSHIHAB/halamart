@@ -38,8 +38,9 @@ class Categories extends Component
     {
         if (!empty($this->search)) {
             //DB::enableQueryLog(); // Enable query log
+            $slug = 'slug->' . App()->getLocale();
             $this->categories = Category::where('parent_id', 0)
-                ->where('slug', 'LIKE', "%" . strtolower($this->search) . "%")
+                ->where($slug, 'LIKE', "%" . strtolower($this->search) . "%")
                 ->orderBy('sort')
                 ->get();
             //dd(DB::getQueryLog());

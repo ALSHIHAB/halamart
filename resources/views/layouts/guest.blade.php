@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="{{ asset('storage/' . config('global.icon')) }}">
-    <link rel="icon" type ="image/png" href="{{ asset('storage/' . config('global.logo_'.App::getLocale())) }}">
+    <!-- <link rel="icon" type ="image/png" href="{{ asset('storage/' . config('global.icon')) }}"> -->
     <title>{{ config('global.name_' . App::getLocale(), 'Sindebad') }}</title>
     <meta name="description" content="{{ config('global.description_' . App::getLocale(), 'eCommerce') }}">
     <meta name="keywords" content="{{ config('global.keywords_' . App::getLocale(), 'eCommerce') }}">

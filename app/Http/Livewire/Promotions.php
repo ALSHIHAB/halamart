@@ -21,10 +21,9 @@ class Promotions extends Component
         $query = Product::query();
         if (!empty($this->search)) {
             //DB::enableQueryLog(); // Enable query log
-            $s = str_replace("\\", "\\\\", json_encode($this->search));
-            $s = str_replace("\"", "", $s);
-            $s = "%" . $s . "%";
-            $query = $query->where('slug', 'LIKE', strtolower($s));
+            $s = "%" . $this->search . "%";
+            $slug = 'slug->' . App()->getLocale();
+            $query = $query->where($slug, 'LIKE', strtolower($s));
 
             //dd(DB::getQueryLog());
         }

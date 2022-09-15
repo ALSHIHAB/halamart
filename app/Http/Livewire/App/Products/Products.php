@@ -20,14 +20,17 @@ class Products extends Component
     {
         if (!empty($this->search)) {
             //DB::enableQueryLog(); // Enable query log
-            $products = Product::where('slug', 'LIKE', "%" . strtolower($this->search) . "%")
+            $slug = 'slug->' . App()->getLocale();
+            $products = Product::where($slug, 'LIKE', "%" . strtolower($this->search) . "%")
                 ->orderBy('sort')
                 ->paginate(20);
             //dd(DB::getQueryLog());
-        } else
+        } else {
             $products = Product::orderBy('sort')->paginate(20);
-            //dd($this->products);
-        return view('livewire.app.products.products',compact('products'));
+        }
+
+        //dd($this->products);
+        return view('livewire.app.products.products', compact('products'));
     }
 
     public function resetFields()

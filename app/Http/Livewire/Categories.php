@@ -23,28 +23,33 @@ class Categories extends Component
     public function render()
     {
         $query = Product::query();
-        if ($this->slug)
+        if ($this->slug) {
             $this->setCategory();
+        }
+
         if (!empty($this->search)) {
             //DB::enableQueryLog(); // Enable query log
-            $s = str_replace("\\", "\\\\", json_encode($this->search));
-            $s = str_replace("\"", "", $s);
-            $s =  "%" . $s . "%";
-            $query = $query->where('slug', 'LIKE', strtolower($s));
-
+            $s = "%" . $this->search . "%";
+            $slug = 'slug->' . App()->getLocale();
+            $query = $query->where($slug, 'LIKE', strtolower($s));
             //dd(DB::getQueryLog());
         }
-        if ($this->f_categories)
+        if ($this->f_categories) {
             $query = $query->whereIn('category_id', $this->f_categories);
-        if ($this->f_brands)
+        }
+
+        if ($this->f_brands) {
             $query = $query->whereIn('brand_id', $this->f_brands);
+        }
 
         // $this->products = $query->where('enabled', 1)->orderBy('sort')->get();
         //dd($query->toSql());
-        if (!$this->sort)
+        if (!$this->sort) {
             $this->products = $query->where('enabled', 1)->orderBy('sort')->get();
-        else
+        } else {
             $this->products = $query->where('enabled', 1)->orderBy($this->sort)->get();
+        }
+
         return view('livewire.categories')->layout('layouts.guest');
     }
 
@@ -59,8 +64,10 @@ class Categories extends Component
         $category = Category::where('slug->en', '=', strtolower($s))->orWhere('slug->ar', '=', $s)->first();
         array_push($this->f_categories, $category->id);
         $subCategories = Category::where('parent_id', $category->id)->get();
-        foreach ($subCategories as $sCat)
+        foreach ($subCategories as $sCat) {
             array_push($this->f_categories, $sCat->id);
+        }
+
     }
 
     public function sort($value)

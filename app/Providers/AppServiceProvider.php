@@ -3,8 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Setting;
-use App\View\Components\CustomerLayout;
-use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -28,14 +27,16 @@ class AppServiceProvider extends ServiceProvider
     {
 
         // Blade::component('customer-layout', CustomerLayout::class);
+        if (Schema::hasTable('settings')) {
+            config([
+                'global' => Setting::pluck('value', 'name')->all(),
+                //->keyBy('name') // key every setting by its name
+                // ->transform(function ($setting) {
+                //     return $setting->value; // return only the value
+                // })
+                //->toArray() // make it an array
+            ]);
+        }
 
-        config([
-            'global' => Setting::pluck('value', 'name')->all()
-            //->keyBy('name') // key every setting by its name
-            // ->transform(function ($setting) {
-            //     return $setting->value; // return only the value
-            // })
-            //->toArray() // make it an array
-        ]);
     }
 }

@@ -37,7 +37,8 @@ class Brands extends Component
     {
         if (!empty($this->search)) {
             //DB::enableQueryLog(); // Enable query log
-            $this->brands = Brand::where('slug', 'LIKE', "%" . strtolower($this->search) . "%")
+            $slug = 'slug->' . App()->getLocale();
+            $this->brands = Brand::where($slug, 'LIKE', "%" . strtolower($this->search) . "%")
                 ->orderBy('sort')
                 ->get();
             //dd(DB::getQueryLog());
