@@ -11,9 +11,10 @@ class Reviews extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $product;
+    public function __construct($product = null)
     {
-        //
+        $this->product = $product;
     }
 
     /**

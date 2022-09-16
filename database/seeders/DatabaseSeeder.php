@@ -2,11 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Blog;
-use App\Models\BlogCategory;
 use App\Models\BlogPostTag;
-use App\Models\BlogTag;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,7 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-
         $this->call([
             RolesAndPermissionsSeeder::class,
             UserSeeder::class,
@@ -28,6 +23,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ProductSeeder::class,
             ProductDisplaySeeder::class,
+            ProductReviewsSeeder::class,
             UserFavouritesSeeder::class,
             MediaSeeder::class,
             SettingsSeeder::class,

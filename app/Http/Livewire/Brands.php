@@ -25,9 +25,12 @@ class Brands extends Component
         if (!empty($this->search)) {
             //DB::enableQueryLog(); // Enable query log
             $s = "%" . $this->search . "%";
-            $slug = 'slug->' . App()->getLocale();
-            $query = $query->where($slug, 'LIKE', strtolower($s));
-
+            $langs = config('app.languages');
+            $query = $query->where(function ($q) use ($langs, $s) {
+                foreach ($langs as $lang) {
+                    $q->orWhere('slug->' . $lang, 'LIKE', strtolower($s));
+                }
+            });
             //dd(DB::getQueryLog());
         }
         if ($this->slug) {

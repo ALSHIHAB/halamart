@@ -38,12 +38,15 @@ class Categories extends Component
     {
         if (!empty($this->search)) {
             //DB::enableQueryLog(); // Enable query log
-            $slug = 'slug->' . App()->getLocale();
-            $this->categories = Category::where('parent_id', 0)
-                ->where($slug, 'LIKE', "%" . strtolower($this->search) . "%")
-                ->orderBy('sort')
+            $s = "%" . $this->search . "%";
+            $langs = config('app.languages');
+            $this->categories = Category::where(function ($q) use ($langs, $s) {
+                foreach ($langs as $lang) {
+                    $q->orWhere('slug->' . $lang, 'LIKE', strtolower($s));
+                }
+            })->orderBy('sort')
                 ->get();
-            //dd(DB::getQueryLog());
+
         } else {
             $this->categories = Category::where('parent_id', 0)->orderBy('sort')->get();
         }

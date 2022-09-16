@@ -59,26 +59,44 @@ class Product extends Model
 
     }
 
-    public function previews()
+    public function reviews()
     {
-        return $this->hasMany(ProductPreview::class);
+        return $this->hasMany(ProductReview::class);
     }
 
     public function stars()
     {
         $stars = 0;
         $loop = 0;
-        foreach ($this->previews as $key => $preview) {
-            $stars = $stars + $preview->starts;
+        $per = ['5' => 0, '4' => 0, '3' => 0, '2' => 0, '1' => 0];
+        foreach ($this->reviews as $review) {
+            $stars = $stars + $review->stars;
             $loop = $loop + 1;
+            if ($review->stars == 5) {
+                $per['5'] = $per['5'] + 1;
+            } elseif ($review->stars == 4) {
+                $per['4'] = $per['4'] + 1;
+            } elseif ($review->stars == 3) {
+                $per['3'] = $per['3'] + 1;
+            } elseif ($review->stars == 2) {
+                $per['2'] = $per['2'] + 1;
+            } elseif ($review->stars == 1) {
+                $per['1'] = $per['1'] + 1;
+            }
+
         }
+        foreach ($per as $k => $p) {
+            $per[$k] = $p / $loop * 100;
+        }
+
         $data = [
             'total' => $stars,
             'value' => $loop > 0 ? ($stars / $loop) : 0,
             'stars' => $loop > 0 ? round($stars / $loop) : 0,
             'reviews' => $loop,
+            'per' => $per,
         ];
-        return $data;
+        return (object) $data;
     }
 
     public function display()

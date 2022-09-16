@@ -22,7 +22,7 @@
             </div>
             <div class="relative flex items-center justify-between w-full">
                 <div
-                    class="flex items-center justify-center p-1 text-lg font-semibold text-white rounded-lg hover:bg-blue-500">
+                    class="flex items-center justify-center px-1 bg-opacity-40 text-lg font-semibold text-white rounded-lg bg-white hover:bg-opacity-70">
                     @if ($product->price > 0)
                         <x-currency :amount="$product->price" />
                     @endif

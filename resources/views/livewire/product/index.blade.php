@@ -50,9 +50,9 @@
                         </div>
                     @endif
                     <!-- Reviews -->
-                    @if ($product->stars()['stars'])
+                    @if ($product->reviews)
                         <div class="mt-3 text-indigo-600">
-                            <x-stars :stars="$product->stars()['stars']" />
+                            <x-stars :stars="$product->stars()->stars" />
                         </div>
                     @endif
                     @if ($product->brand_id > 1)
@@ -162,11 +162,13 @@
                     <button type="button" id="tab-features" x-on:click="activeTab = 3"
                         class="py-6 text-sm font-medium border-b-2 whitespace-nowrap"
                         :class="activeTab === 3 ? activeClass : inactiveClass">{{ __('Features') }}
-                    </button> 
-                    <button type="button" id="tab-reviews" x-on:click="activeTab = 4"
-                        class="py-6 text-sm font-medium border-b-2 whitespace-nowrap"
-                        :class="activeTab === 4 ? activeClass : inactiveClass">{{ __('Customer reviews') }}
                     </button> --}}
+                    @if($product->reviews)
+                        <button type="button" id="tab-reviews" x-on:click="activeTab = 4"
+                            class="py-6 text-sm font-medium border-b-2 whitespace-nowrap"
+                            :class="activeTab === 4 ? activeClass : inactiveClass">{{ __('Reviews') }}
+                        </button> 
+                    @endif
                 </div>
                 <div id="tab-panel-reviews" x-show="activeTab === 1" class="my-5">
                     {!! $product->description !!}
@@ -176,10 +178,10 @@
                 </div>
                 <div id="tab-panel-features" x-show="activeTab === 3" class="my-5" x-cloak>
                     <x-product.features />
-                </div>
-                <div id="tab-panel-reviews" x-show="activeTab === 4" class="my-5">
-                    <x-product.reviews />
                 </div> --}}
+                <div id="tab-panel-reviews" x-show="activeTab === 4" class="my-5" x-cloak>
+                    <x-product.reviews :product="$product" />
+                </div> 
             </div>
 
             <!-- Similar products -->

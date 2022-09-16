@@ -36,12 +36,14 @@ class Brands extends Component
     public function render()
     {
         if (!empty($this->search)) {
-            //DB::enableQueryLog(); // Enable query log
-            $slug = 'slug->' . App()->getLocale();
-            $this->brands = Brand::where($slug, 'LIKE', "%" . strtolower($this->search) . "%")
-                ->orderBy('sort')
+            $s = "%" . $this->search . "%";
+            $langs = config('app.languages');
+            $this->brands = Brand::where(function ($q) use ($langs, $s) {
+                foreach ($langs as $lang) {
+                    $q->orWhere('slug->' . $lang, 'LIKE', strtolower($s));
+                }
+            })->orderBy('sort')
                 ->get();
-            //dd(DB::getQueryLog());
         } else {
             $this->brands = Brand::orderBy('sort')->get();
         }

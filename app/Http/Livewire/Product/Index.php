@@ -22,15 +22,17 @@ class Index extends Component
     public function render()
     {
         $s = "%" . $this->slug . "%";
-        $slug = 'slug->' . App()->getLocale();
-        $this->product = Product::where($slug, 'LIKE', strtolower($s))
-            ->where('enabled', 1)
-            ->first();
-        //dd($this->product);
+        $langs = config('app.languages');
+        $this->product = Product::where(function ($q) use ($langs, $s) {
+            foreach ($langs as $lang) {
+                $q->orWhere('slug->' . $lang, 'LIKE', strtolower($s));
+            }
+        })->where('enabled', 1)->first();
         if ($this->product) {
             $this->similars = Product::where('category_id', $this->product->category_id)->where('id', '!=', $this->product->id)->get();
+        } else {
+            abort(404);
         }
-
         $this->breadcrumb = [];
         $this->getParent($this->product->category);
         $this->breadcrumb = array_reverse($this->breadcrumb);
