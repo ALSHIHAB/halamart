@@ -10,7 +10,7 @@
     <title>{{ config('global.name_' . App::getLocale(), 'Sindebad') }}</title>
     <meta name="description" content="{{ config('global.description_' . App::getLocale(), 'eCommerce') }}">
     <meta name="keywords" content="{{ config('global.keywords_' . App::getLocale(), 'eCommerce') }}">
-    <meta name="author" content="Sindebad SDN. PHD.">
+    <meta name="author" content="Sindebad SDN. BHD.">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- Styles -->
@@ -23,12 +23,15 @@
     <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 
 </head>
-@if(config('global.layout')==='basic')
+@if (config('global.layout') === 'basic')
     <x-layouts.guest-header />
-@elseif (config('global.layout')==='modern')
+@elseif (config('global.layout') === 'modern')
     <x-layouts2.guest-header />
+@elseif (config('global.layout') === 'lite')
+    <x-layouts3.guest-header />
 @endif
-<body class="antialiased text-gray-900 font-droid bg-gray-50">
+
+<body class="font-droid bg-gray-50 text-gray-900 antialiased">
 
     {{ $slot }}
 

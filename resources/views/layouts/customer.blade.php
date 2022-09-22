@@ -10,7 +10,7 @@
     <title>{{ config('global.name_' . App::getLocale(), 'Halamart') }}</title>
     <meta name="description" content="{{ config('global.description_' . App::getLocale(), 'eCommerce') }}">
     <meta name="keywords" content="{{ config('global.keywords_' . App::getLocale(), 'eCommerce') }}">
-    <meta name="author" content="Sindebad SDN. PHD.">
+    <meta name="author" content="Sindebad SDN. BHD.">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 

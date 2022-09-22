@@ -33,7 +33,7 @@ class Categories extends Component
             $langs = config('app.languages');
             $query = $query->where(function ($q) use ($langs, $s) {
                 foreach ($langs as $lang) {
-                    $q->orWhere('slug->' . $lang, 'LIKE', strtolower($s));
+                    $q->orWhere('name->' . $lang, 'LIKE', strtolower($s));
                 }
             });
             //dd(DB::getQueryLog());
@@ -65,8 +65,13 @@ class Categories extends Component
 
     public function setCategory()
     {
-        $s = $this->slug;
-        $category = Category::where('slug->en', '=', strtolower($s))->orWhere('slug->ar', '=', $s)->first();
+        $slug = $this->slug;
+        $langs = config('app.languages');
+        $category = Category::where(function ($q) use ($slug, $langs) {
+            foreach ($langs as $lang) {
+                $q->orWhere('slug->' . $lang, '=', strtolower($slug));
+            }
+        })->first();
         array_push($this->f_categories, $category->id);
         $subCategories = Category::where('parent_id', $category->id)->get();
         foreach ($subCategories as $sCat) {

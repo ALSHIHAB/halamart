@@ -25,7 +25,7 @@ class Featured extends Component
             $langs = config('app.languages');
             $query = $query->where(function ($q) use ($langs, $s) {
                 foreach ($langs as $lang) {
-                    $q->orWhere('slug->' . $lang, 'LIKE', strtolower($s));
+                    $q->orWhere('name->' . $lang, 'LIKE', strtolower($s));
                 }
             });
             //dd(DB::getQueryLog());

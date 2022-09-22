@@ -23,7 +23,7 @@ class Products extends Component
             $langs = config('app.languages');
             $products = Product::where(function ($q) use ($langs, $s) {
                 foreach ($langs as $lang) {
-                    $q->orWhere('slug->' . $lang, 'LIKE', strtolower($s));
+                    $q->orWhere('name->' . $lang, 'LIKE', strtolower($s));
                 }
             })->where('enabled', 1)
                 ->orderBy('sort')

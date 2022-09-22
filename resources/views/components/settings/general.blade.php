@@ -1,14 +1,14 @@
 <div>
     <form id="general_settings_form" class="relative" wire:submit.prevent="saveGeneral">
-        <div class="max-w-sm mt-4">
+        <div class="mt-4 max-w-sm">
             <h1 class="py-2">{{ __('Logo') }}</h1>
             <x-upload-image :image="$this->logo" :name="'logo'" :width="'full'" />
         </div>
-        <div class="max-w-sm mt-4">
+        <div class="mt-4 max-w-sm">
             <h1 class="py-2">{{ __('Icon') }}</h1>
             <x-upload-image :image="$this->icon" :name="'icon'" />
         </div>
-        <div class="grid grid-cols-1 gap-2 divide-x-2 lg:grid-cols-3 rtl:divide-x-reverse">
+        <div class="grid grid-cols-1 gap-2 divide-x-2 rtl:divide-x-reverse lg:grid-cols-3">
             <!-- Contact form -->
             <div class="mt-6 lg:col-span-2">
                 <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
@@ -18,10 +18,10 @@
                         <div>
                             <div class="relative mt-1 rounded-md shadow-sm">
                                 <input type="text" wire:model.defer="settings.name_en" required
-                                    class="block w-full border-gray-300 rounded-md peer read-only:bg-gray-100 placeholder:text-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                     placeholder="Name" aria-describedby="name_en">
                                 <div
-                                    class="absolute inset-y-0 flex items-center px-2 m-1 bg-gray-100 pointer-events-none peer-optional:hidden ltr:right-0 rtl:left-0">
+                                    class="peer-optional:hidden pointer-events-none absolute inset-y-0 m-1 flex items-center bg-gray-100 px-2 ltr:right-0 rtl:left-0">
                                     <span class="text-gray-500 sm:text-xs" id="name_en">
                                         {{ __('Required') }}
                                     </span>
@@ -38,10 +38,10 @@
                         <div>
                             <div class="relative mt-1 rounded-md shadow-sm">
                                 <input type="text" wire:model.defer="settings.name_ar" required
-                                    class="block w-full border-gray-300 rounded-md peer read-only:bg-gray-100 placeholder:text-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                     placeholder="{{ __('Name') }}" aria-describedby="name_ar">
                                 <div
-                                    class="absolute inset-y-0 flex items-center px-2 m-1 bg-gray-100 pointer-events-none peer-optional:hidden ltr:right-0 rtl:left-0">
+                                    class="peer-optional:hidden pointer-events-none absolute inset-y-0 m-1 flex items-center bg-gray-100 px-2 ltr:right-0 rtl:left-0">
                                     <span class="text-gray-500 sm:text-xs" id="name_ar">
                                         {{ __('Required') }}
                                     </span>
@@ -58,12 +58,12 @@
                             <label for="description_en" class="block text-sm font-medium text-gray-700">
                                 {{ __('Description') }} {{ __('English') }}
                             </label>
-                            <p class="text-xs text-gray-500 peer-optional:hidden">{{ __('Required') }}</p>
+                            <p class="peer-optional:hidden text-xs text-gray-500">{{ __('Required') }}</p>
                         </div>
                         <div>
                             <div class="relative mt-1 rounded-md shadow-sm">
                                 <textarea rows="3" wire:model.defer="settings.description_en" required
-                                    class="block w-full border-gray-300 rounded-md peer read-only:bg-gray-100 placeholder:text-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                     placeholder="{{ __('Short Description') }}" aria-describedby="description_en">
                                 </textarea>
                             </div>
@@ -78,13 +78,13 @@
                             <label for="description_ar" class="block text-sm font-medium text-gray-700">
                                 {{ __('Description') }} {{ __('Arabic') }}
                             </label>
-                            <p class="text-xs text-gray-500 peer-optional:hidden">{{ __('Required') }}</p>
+                            <p class="peer-optional:hidden text-xs text-gray-500">{{ __('Required') }}</p>
                         </div>
 
                         <div>
                             <div class="relative mt-1 rounded-md shadow-sm">
                                 <textarea rows="3" wire:model.defer="settings.description_ar" required
-                                    class="block w-full border-gray-300 rounded-md peer read-only:bg-gray-100 placeholder:text-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                     placeholder="{{ __('Short Description') }}" aria-describedby="description_ar">
                                 </textarea>
                             </div>
@@ -97,18 +97,19 @@
 
                     <div x-cloak class="sm:col-span-2">
                         <div class="flex justify-between">
-                            <label for="keywords_en" class="block text-sm font-medium text-gray-700">{{ __('Keywords') }}
+                            <label for="keywords_en"
+                                class="block text-sm font-medium text-gray-700">{{ __('Keywords') }}
                                 {{ __('English') }}
                                 <span class="text-xs text-gray-500">({{ __('Separated by comma') }})
 
                                 </span>
                             </label>
-                            <p class="text-xs text-gray-500 peer-optional:hidden">{{ __('Required') }}</p>
+                            <p class="peer-optional:hidden text-xs text-gray-500">{{ __('Required') }}</p>
                         </div>
                         <div>
                             <div class="relative mt-1 rounded-md shadow-sm">
                                 <textarea rows="3" wire:model.defer="settings.keywords_en" required
-                                    class="block w-full border-gray-300 rounded-md peer read-only:bg-gray-100 placeholder:text-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                     placeholder="{{ __('Halamart, store, wholesale') }}" aria-describedby="tags_en">
                                 </textarea>
                             </div>
@@ -120,18 +121,19 @@
 
                     <div x-cloak class="sm:col-span-2">
                         <div class="flex justify-between">
-                            <label for="keywords_ar" class="block text-sm font-medium text-gray-700">{{ __('Keywords') }}
+                            <label for="keywords_ar"
+                                class="block text-sm font-medium text-gray-700">{{ __('Keywords') }}
                                 {{ __('Arabic') }}
                                 <span class="text-xs text-gray-500">
                                     ({{ __('Separated by comma') }})
                                 </span>
                             </label>
-                            <p class="text-xs text-gray-500 peer-optional:hidden">{{ __('Required') }}</p>
+                            <p class="peer-optional:hidden text-xs text-gray-500">{{ __('Required') }}</p>
                         </div>
                         <div>
                             <div class="relative mt-1 rounded-md shadow-sm">
                                 <textarea rows="3" wire:model.defer="settings.keywords_ar" required
-                                    class="block w-full border-gray-300 rounded-md peer read-only:bg-gray-100 placeholder:text-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                     placeholder="{{ __('Halamart, store, wholesale') }}" aria-describedby="tags_ar">
                                 </textarea>
                             </div>
@@ -140,15 +142,51 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="">
+                        <label for="currency_en"
+                            class="block text-sm font-medium text-gray-700">{{ __('Currency English') }}</label>
+                        <div class="relative mt-1 rounded-md shadow-sm">
+                            <input type="text" wire:model.defer="settings.currency_en" required
+                                class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                placeholder="YR" aria-describedby="currency_en">
+                            <div
+                                class="peer-optional:hidden pointer-events-none absolute inset-y-0 m-1 flex items-center bg-gray-100 px-2 ltr:right-0 rtl:left-0">
+                                <span class="text-gray-500 sm:text-xs" id="currency_en">
+                                    {{ __('Required') }}
+                                </span>
+                            </div>
+                        </div>
+                        @error('settings.currency_en')
+                            <p class="mt-2 text-xs text-red-600">{{ __($message) }}</p>
+                        @enderror
+                    </div>
+                    <div class="">
+                        <label for="currency_ar"
+                            class="block text-sm font-medium text-gray-700">{{ __('Currency Arabic') }}</label>
+                        <div class="relative mt-1 rounded-md shadow-sm">
+                            <input type="text" wire:model.defer="settings.currency_ar" required
+                                class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                placeholder="ريال" aria-describedby="currency_ar">
+                            <div
+                                class="peer-optional:hidden pointer-events-none absolute inset-y-0 m-1 flex items-center bg-gray-100 px-2 ltr:right-0 rtl:left-0">
+                                <span class="text-gray-500 sm:text-xs" id="currency_ar">
+                                    {{ __('Required') }}
+                                </span>
+                            </div>
+                        </div>
+                        @error('settings.currency_ar')
+                            <p class="mt-2 text-xs text-red-600">{{ __($message) }}</p>
+                        @enderror
+                    </div>
                     <div class="sm:col-span-2">
                         <label for="contact"
                             class="block text-sm font-medium text-gray-700">{{ __('Contact Number') }}</label>
                         <div class="relative mt-1 rounded-md shadow-sm">
                             <input type="number" wire:model.defer="settings.contact"
-                                class="block w-full border-gray-300 rounded-md peer read-only:bg-gray-100 placeholder:text-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                 placeholder="0097671175643" aria-describedby="contact">
                             <div
-                                class="absolute inset-y-0 flex items-center px-2 m-1 bg-gray-100 pointer-events-none peer-optional:hidden ltr:right-0 rtl:left-0">
+                                class="peer-optional:hidden pointer-events-none absolute inset-y-0 m-1 flex items-center bg-gray-100 px-2 ltr:right-0 rtl:left-0">
                                 <span class="text-gray-500 sm:text-xs" id="contact">
                                     {{ __('Required') }}
                                 </span>
@@ -163,10 +201,10 @@
                             class="block text-sm font-medium text-gray-700">{{ __('Email') }}</label>
                         <div class="relative mt-1 rounded-md shadow-sm">
                             <input type="email" wire:model.defer="settings.email"
-                                class="block w-full border-gray-300 rounded-md peer read-only:bg-gray-100 placeholder:text-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                 placeholder="example@halamart.net" aria-describedby="email">
                             <div
-                                class="absolute inset-y-0 flex items-center px-2 m-1 bg-gray-100 pointer-events-none peer-optional:hidden ltr:right-0 rtl:left-0">
+                                class="peer-optional:hidden pointer-events-none absolute inset-y-0 m-1 flex items-center bg-gray-100 px-2 ltr:right-0 rtl:left-0">
                                 <span class="text-gray-500 sm:text-xs" id="email">
                                     {{ __('Required') }}
                                 </span>
@@ -185,10 +223,10 @@
                                 </label>
                                 <div class="relative mt-1 rounded-md shadow-sm">
                                     <input type="text" wire:model.defer="settings.country_en"
-                                        class="block w-full border-gray-300 rounded-md peer read-only:bg-gray-100 placeholder:text-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                        class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                         placeholder="Yemen" aria-describedby="country_en">
                                     <div
-                                        class="absolute inset-y-0 flex items-center px-2 m-1 bg-gray-100 pointer-events-none peer-optional:hidden ltr:right-0 rtl:left-0">
+                                        class="peer-optional:hidden pointer-events-none absolute inset-y-0 m-1 flex items-center bg-gray-100 px-2 ltr:right-0 rtl:left-0">
                                         <span class="text-gray-500 sm:text-xs" id="country_en">
                                             {{ __('Required') }}
                                         </span>
@@ -204,10 +242,10 @@
                                 </label>
                                 <div class="relative mt-1 rounded-md shadow-sm">
                                     <input type="text" wire:model.defer="settings.city_en"
-                                        class="block w-full border-gray-300 rounded-md peer read-only:bg-gray-100 placeholder:text-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                        class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                         placeholder="Taiz" aria-describedby="city_en">
                                     <div
-                                        class="absolute inset-y-0 flex items-center px-2 m-1 bg-gray-100 pointer-events-none peer-optional:hidden ltr:right-0 rtl:left-0">
+                                        class="peer-optional:hidden pointer-events-none absolute inset-y-0 m-1 flex items-center bg-gray-100 px-2 ltr:right-0 rtl:left-0">
                                         <span class="text-gray-500 sm:text-xs" id="city_en">
                                             {{ __('Required') }}
                                         </span>
@@ -223,10 +261,10 @@
                                 </label>
                                 <div class="relative mt-1 rounded-md shadow-sm">
                                     <input type="text" wire:model.defer="settings.post_code"
-                                        class="block w-full border-gray-300 rounded-md peer read-only:bg-gray-100 placeholder:text-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                        class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                         placeholder="53000" aria-describedby="post_code">
                                     <div
-                                        class="absolute inset-y-0 flex items-center px-2 m-1 bg-gray-100 pointer-events-none peer-optional:hidden ltr:right-0 rtl:left-0">
+                                        class="peer-optional:hidden pointer-events-none absolute inset-y-0 m-1 flex items-center bg-gray-100 px-2 ltr:right-0 rtl:left-0">
                                         <span class="text-gray-500 sm:text-xs" id="post_code">
                                             {{ __('Required') }}
                                         </span>
@@ -248,10 +286,10 @@
                                 </label>
                                 <div class="relative mt-1 rounded-md shadow-sm">
                                     <input type="text" wire:model.defer="settings.country_ar"
-                                        class="block w-full border-gray-300 rounded-md peer read-only:bg-gray-100 placeholder:text-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                        class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                         placeholder="اليمن" aria-describedby="country_ar">
                                     <div
-                                        class="absolute inset-y-0 flex items-center px-2 m-1 bg-gray-100 pointer-events-none peer-optional:hidden ltr:right-0 rtl:left-0">
+                                        class="peer-optional:hidden pointer-events-none absolute inset-y-0 m-1 flex items-center bg-gray-100 px-2 ltr:right-0 rtl:left-0">
                                         <span class="text-gray-500 sm:text-xs" id="country_ar">
                                             {{ __('Required') }}
                                         </span>
@@ -268,10 +306,10 @@
                                 </label>
                                 <div class="relative mt-1 rounded-md shadow-sm">
                                     <input type="text" wire:model.defer="settings.city_ar"
-                                        class="block w-full border-gray-300 rounded-md peer read-only:bg-gray-100 placeholder:text-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                        class="peer block w-full rounded-md border-gray-300 placeholder:text-gray-400 read-only:bg-gray-100 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                         placeholder="تعز" aria-describedby="city_ar">
                                     <div
-                                        class="absolute inset-y-0 flex items-center px-2 m-1 bg-gray-100 pointer-events-none peer-optional:hidden ltr:right-0 rtl:left-0">
+                                        class="peer-optional:hidden pointer-events-none absolute inset-y-0 m-1 flex items-center bg-gray-100 px-2 ltr:right-0 rtl:left-0">
                                         <span class="text-gray-500 sm:text-xs" id="city_ar">
                                             {{ __('Required') }}
                                         </span>
@@ -286,13 +324,13 @@
                 </div>
             </div>
         </div>
-        <div class="pt-2 mt-4 border-t sm:col-span-2 sm:flex sm:justify-end">
+        <div class="mt-4 border-t pt-2 sm:col-span-2 sm:flex sm:justify-end">
             <div class="flex justify-end">
                 <x-session-msg2 />
                 {{-- <button type="button" class="btn-cancel">
                     {{ __('Cancel') }}
                 </button> --}}
-                <button type="submit" class="ltr:ml-3 rtl:mr-3 btn">
+                <button type="submit" class="btn ltr:ml-3 rtl:mr-3">
                     {{ __('Save') }}
                 </button>
             </div>

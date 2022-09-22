@@ -28,7 +28,7 @@ class Brands extends Component
             $langs = config('app.languages');
             $query = $query->where(function ($q) use ($langs, $s) {
                 foreach ($langs as $lang) {
-                    $q->orWhere('slug->' . $lang, 'LIKE', strtolower($s));
+                    $q->orWhere('name->' . $lang, 'LIKE', strtolower($s));
                 }
             });
             //dd(DB::getQueryLog());
@@ -62,15 +62,14 @@ class Brands extends Component
     public function setBrand()
     {
         //$s =  "%" . $this->slug . "%";
-        $s = $this->slug;
-        $query = Brand::where('slug->en', '=', strtolower($s))->orWhere('slug->ar', '=', $s)->first();
+        $slug = $this->slug;
+        $langs = config('app.languages');
+        $query = Brand::where(function ($q) use ($slug, $langs) {
+            foreach ($langs as $lang) {
+                $q->orWhere('slug->' . $lang, '=', strtolower($slug));
+            }
+        })->first();
         array_push($this->f_brands, $query->id);
-        if ($this->slug) {
-            echo "hello";
-        } else {
-            echo "go";
-        }
-
     }
 
     public function sort($value)

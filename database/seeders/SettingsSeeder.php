@@ -49,7 +49,7 @@ class SettingsSeeder extends Seeder
 
             [
                 'name' => 'email',
-                'value' => 'contact@halamart.net',
+                'value' => 'contact@halamart.biz',
             ],
             [
                 'name' => 'contact',

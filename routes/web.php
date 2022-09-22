@@ -59,6 +59,11 @@ Route::group(
         Route::get('contact', function () {
             return view('pages.contact');
         })->name('pages.contact');
+
+        Route::get('guidance', function () {
+            return view('pages.guidance');
+        })->name('pages.guidance');
+
     }
 );
 
@@ -68,7 +73,6 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/favourites', \App\Http\Livewire\Favourites::class)->name('favourites');
-
 });
 
 Route::middleware([

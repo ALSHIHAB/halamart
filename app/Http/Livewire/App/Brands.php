@@ -40,7 +40,7 @@ class Brands extends Component
             $langs = config('app.languages');
             $this->brands = Brand::where(function ($q) use ($langs, $s) {
                 foreach ($langs as $lang) {
-                    $q->orWhere('slug->' . $lang, 'LIKE', strtolower($s));
+                    $q->orWhere('name->' . $lang, 'LIKE', strtolower($s));
                 }
             })->orderBy('sort')
                 ->get();

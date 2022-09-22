@@ -86,7 +86,12 @@ class Product extends Model
 
         }
         foreach ($per as $k => $p) {
-            $per[$k] = $p / $loop * 100;
+            if ($loop) {
+                $per[$k] = $p / $loop * 100;
+            } else {
+                $per[$k] = 0;
+            }
+
         }
 
         $data = [
