@@ -140,7 +140,7 @@
                         <div class="py-4 px-4">
                             <img class="my-4" src="{{ asset('storage/guide/logoes-trans.png') }}" />
                             <img src="{{ asset('storage/guide/halamart-guide.jpg') }}" />
-                            <div align="center" class="flex justify-center py-2">
+                            <div align="center" class="flex justify-center py-4">
                                 <img src="https://img.shields.io/badge/php-%5E8.1-blue?logo=php">
                                 <img src="https://img.shields.io/badge/laravel-%5E9.x-blue?logo=laravel"
                                     class="ml-3">
@@ -186,6 +186,14 @@
                                     <p>To get Halamart installed on your local machine or VPS, you will need to download
                                         the zip archive from CodeCanyon and extract it to your desired directory.
                                     </p>
+                                </li>
+                                <li>
+                                    <strong>Change document root from cPanel</strong>
+                                    <p>If you are in shared hosting, you have to change the domain of your website to
+                                        be: &lt;Your-domain&gt;/public</p>
+                                    <div class="py-4">
+                                        <img src="{{ asset('storage/guide/domain.jpg') }}" />
+                                    </div>
                                 </li>
                                 <li>
                                     <strong>Install composer</strong>
@@ -240,6 +248,26 @@
                                             <span class="text-sm font-normal italic text-gray-200">
                                                 php artisan storage:link
                                             </span>
+                                        </code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong>Clear cache commands</strong>
+                                    <p>Run the following commands to clear any cached files:</p>
+                                    <div class="flex w-full justify-start">
+                                        <code class="w-full rounded-md bg-gray-800 p-2">
+                                            <p class="text-sm font-normal italic text-gray-200">
+                                                php artisan config:clear
+                                            </p>
+                                            <p class="text-sm font-normal italic text-gray-200">
+                                                php artisan view:clear
+                                            </p>
+                                            <p class="text-sm font-normal italic text-gray-200">
+                                                php artisan cache:clear
+                                            </p>
+                                            <p class="text-sm font-normal italic text-gray-200">
+                                                php artisan route:cache
+                                            </p>
                                         </code>
                                     </div>
                                 </li>

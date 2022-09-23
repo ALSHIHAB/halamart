@@ -40,11 +40,11 @@ class SettingsSeeder extends Seeder
             ],
             [
                 'name' => 'keywords_en',
-                'value' => 'halamart, eCommerce website, multilingual, Halamart, halamart, yemen, taiz',
+                'value' => 'halamart, eCommerce website, multilingual, Halamart, halamart, Malaysia, Kuala Lumpor',
             ],
             [
                 'name' => 'keywords_ar',
-                'value' => 'متجر، هــلا مارت منتجات متنوعة، اليمن، تعز',
+                'value' => 'متجر، هــلا مارت منتجات متنوعة، ماليزيا، كوالالمبور',
             ],
 
             [
@@ -57,19 +57,19 @@ class SettingsSeeder extends Seeder
             ],
             [
                 'name' => 'country_en',
-                'value' => 'Yemen',
+                'value' => 'Malaysia',
             ],
             [
                 'name' => 'country_ar',
-                'value' => 'اليمن',
+                'value' => 'ماليزيا',
             ],
             [
                 'name' => 'city_en',
-                'value' => 'Taiz',
+                'value' => 'Kuala Lumpur',
             ],
             [
                 'name' => 'city_ar',
-                'value' => 'تعز',
+                'value' => 'كوالالمبور',
             ],
             [
                 'name' => 'post_code',
