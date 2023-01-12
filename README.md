@@ -1,7 +1,7 @@
 # Halamart-Store
-# ecommerce website 
+## ecommerce website 
 
-# Build with
+## Build with
 ```
 Laravel 9
 Livewire
@@ -14,3 +14,7 @@ and many more...
 Have a look at the demo website
 demo.halamart.biz
 ```
+### Website demo [Halamart Store](https://demo.halamart.biz/)
+### For tuturial and guidelins [Guidelines](https://halamart.biz/)
+
+### for any request, suggestions, cooperation please contact me via[Najeebgafar](https://najeebgafar.com)
